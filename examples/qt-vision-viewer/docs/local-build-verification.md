@@ -1,6 +1,7 @@
 # Local Build Verification
 
 Status: completed on maintainer local machine on 2026-06-01.
+Scope: local board SDK compile/link verification completed.
 
 The Qt viewer was compile-tested with a private embedded Linux board SDK using
 only the public example sources in this repository. The public record is
@@ -16,6 +17,10 @@ Verified build shape:
 - `EDGE_VIEWER_ENABLE_FFMPEG=1`.
 - `EDGE_VIEWER_ENABLE_V4L2=1`.
 - FFmpeg and V4L2 capture code compiled and linked into the viewer.
+
+Users must provide their own `CROSS_COMPILE` value. It must point to your local
+cross toolchain prefix, including the trailing target prefix such as
+`aarch64-linux-gnu-`; the repository does not vendor or assume a toolchain path.
 
 Generic command shape:
 

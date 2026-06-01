@@ -149,8 +149,12 @@ class QtExampleTests(unittest.TestCase):
         record_path = EXAMPLE / "docs" / "local-build-verification.md"
         self.assertTrue(record_path.exists(), f"missing {record_path.relative_to(ROOT)}")
         record = record_path.read_text(encoding="utf-8")
+        normalized_record = " ".join(record.split())
 
         self.assertIn("completed on maintainer local machine", record)
+        self.assertIn("local board SDK compile/link verification completed", record)
+        self.assertIn("Users must provide their own `CROSS_COMPILE`", record)
+        self.assertIn("must point to your local cross toolchain prefix", normalized_record)
         self.assertIn("Qt 5.15.x", record)
         self.assertIn("qmake", record)
         self.assertIn("linux-buildroot-g++", record)
