@@ -1,0 +1,19 @@
+{
+  "frame": {
+    "width": 1280,
+    "height": 720,
+    "source": "sample://synthetic-frame"
+  },
+  "detections": [
+    {
+      "label": "person",
+      "score": 0.92,
+      "bbox": [0.14, 0.18, 0.22, 0.50]
+    },
+    {
+      "label": "package",
+      "score": 0.81,
+      "bbox": [0.55, 0.42, 0.24, 0.26]
+    }
+  ]
+}

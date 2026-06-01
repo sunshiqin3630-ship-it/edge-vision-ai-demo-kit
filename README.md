@@ -11,6 +11,8 @@ board credentials, generated model artifacts, or runtime bundles.
 ## What This Repository Contains
 
 - A small Python reference pipeline with a deterministic `mock` backend.
+- A sanitized Qt Widgets viewer skeleton that displays mock detections over a
+  synthetic frame.
 - A model manifest schema that records source repository, revision, license,
   input shape, and artifact distribution status.
 - A sanitization scanner that rejects generated model files, binary runtime
@@ -86,7 +88,7 @@ tests/                       Standard-library tests
 scripts/                     Repository checks
 models/                      Manifest examples only
 docs/                        Architecture, backend, and release guidance
-examples/                    Environment and service templates
+examples/                    Qt viewer, environment, and service templates
 ```
 
 ## Porting A Private Backend
