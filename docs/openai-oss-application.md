@@ -14,6 +14,20 @@ model manifest policy, sanitization checks, and examples. Private hardware
 adapters are intentionally kept outside the public repository so the open-source
 project remains portable and safe to review.
 
+## Evidence Of Active Maintenance
+
+- Public maintenance workflow is documented in `MAINTENANCE.md`, including
+  issue triage, pull request review, release management, and the Sanitization
+  Gate.
+- GitHub issue templates and pull request templates guide users toward
+  sanitized reports and reviewable changes.
+- CI runs public tests and repository checks without private hardware access.
+- The Qt viewer includes sanitized FFmpeg, V4L2, qmake, and dual-screen display
+  examples with local board SDK compile/link verification documented separately.
+- Recent commits added the Qt viewer skeleton, capture and display profiles,
+  qmake support, and clarified board SDK verification without exposing private
+  implementation details.
+
 ## Why The Project Fits OSS Support
 
 The project helps embedded Linux developers build reproducible camera and edge

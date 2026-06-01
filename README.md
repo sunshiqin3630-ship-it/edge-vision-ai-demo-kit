@@ -77,10 +77,12 @@ See [docs/architecture.md](docs/architecture.md) for the detailed design.
 
 ## Project Maintenance
 
+- [Maintenance playbook](MAINTENANCE.md)
 - [Roadmap](docs/roadmap.md)
 - [Contributing guide](CONTRIBUTING.md)
 - [Security policy](SECURITY.md)
 - [Sanitization policy](docs/sanitization-policy.md)
+- [OpenAI OSS application notes](docs/openai-oss-application.md)
 
 ## Repository Layout
 
