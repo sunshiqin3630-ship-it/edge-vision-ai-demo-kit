@@ -1,5 +1,7 @@
 # Edge Vision AI Demo Kit
 
+![CI](https://github.com/sunshiqin3630-ship-it/edge-vision-ai-demo-kit/actions/workflows/ci.yml/badge.svg)
+
 A sanitized reference kit for embedded Linux edge-vision demos.
 
 The project captures a reusable architecture for camera input, display output,
@@ -68,6 +70,13 @@ The public architecture is split into four boundaries:
    license, input metadata, and artifact distribution status.
 
 See [docs/architecture.md](docs/architecture.md) for the detailed design.
+
+## Project Maintenance
+
+- [Roadmap](docs/roadmap.md)
+- [Contributing guide](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Sanitization policy](docs/sanitization-policy.md)
 
 ## Repository Layout
 

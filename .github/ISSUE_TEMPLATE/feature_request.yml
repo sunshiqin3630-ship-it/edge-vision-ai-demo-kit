@@ -1,0 +1,52 @@
+name: Feature request
+description: Suggest a public, hardware-neutral improvement.
+title: "feature: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for changes that improve the public reference kit. Keep private accelerator adapters, SDK details, generated artifacts, credentials, and lab-only deployment values outside the issue.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Documentation
+        - Model manifest
+        - Mock backend
+        - Backend adapter interface
+        - Sanitization checks
+        - CI or release process
+        - Other public maintenance
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What public use case would this improve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the expected behavior, interface, or documentation update.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Note simpler approaches or reasons this should stay out of scope.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope checklist
+      options:
+        - label: This can be implemented without private hardware, private SDK access, or generated model artifacts.
+          required: true
+        - label: This keeps the public repository hardware-neutral.
+          required: true

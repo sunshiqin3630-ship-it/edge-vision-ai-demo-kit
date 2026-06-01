@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible issue in the public reference kit.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue. Keep the report hardware-neutral and do not include private SDK paths, credentials, lab addresses, model binaries, or board-specific runtime bundles.
+  - type: input
+    id: version
+    attributes:
+      label: Repository version
+      description: Commit SHA, tag, or branch where the issue appears.
+      placeholder: "main at <commit-sha>"
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the issue and the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide a minimal public reproduction using mock or generic inputs when possible.
+      placeholder: |
+        1. Run ...
+        2. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Public logs or output
+      description: Paste only sanitized logs. Replace hosts, paths, and device-specific values with placeholders.
+      render: text
+  - type: checkboxes
+    id: hygiene
+    attributes:
+      label: Sanitization checklist
+      options:
+        - label: I removed private SDK names, paths, credentials, lab addresses, and board-specific deployment details.
+          required: true
+        - label: I did not attach generated model artifacts, runtime libraries, archives, or private bundles.
+          required: true
