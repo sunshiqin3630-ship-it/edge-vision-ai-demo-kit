@@ -36,6 +36,10 @@ examples/qt-vision-viewer/scripts/build-board-example.sh \
   examples/qt-vision-viewer/config/board.env.example
 ```
 
+Maintainer local qmake cross-build status is recorded in
+[`docs/local-build-verification.md`](docs/local-build-verification.md). The
+record documents only sanitized Qt, toolchain, FFmpeg, and V4L2 build shape.
+
 ## Run
 
 ```bash

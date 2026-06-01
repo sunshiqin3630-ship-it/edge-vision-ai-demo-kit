@@ -20,6 +20,8 @@ class QtExampleTests(unittest.TestCase):
             EXAMPLE / "config" / "runtime.example.json",
             EXAMPLE / "data" / "detections.example.json",
             EXAMPLE / "docs" / "board-system-profile.md",
+            EXAMPLE / "docs" / "local-build-verification.md",
+            EXAMPLE / "qt-vision-viewer.pro",
             EXAMPLE / "scripts" / "build-board-example.sh",
             EXAMPLE / "src" / "display_router.cpp",
             EXAMPLE / "src" / "display_router.h",
@@ -74,12 +76,21 @@ class QtExampleTests(unittest.TestCase):
             self.assertTrue(path.exists(), f"missing {path.relative_to(ROOT)}")
 
         cmake = paths["cmake"].read_text(encoding="utf-8")
+        qmake = (EXAMPLE / "qt-vision-viewer.pro").read_text(encoding="utf-8")
         readme = paths["readme"].read_text(encoding="utf-8")
         main_window = paths["main_window"].read_text(encoding="utf-8")
         display_router = paths["display_router"].read_text(encoding="utf-8")
 
         self.assertIn("EDGE_VIEWER_ENABLE_FFMPEG", cmake)
         self.assertIn("EDGE_VIEWER_ENABLE_V4L2", cmake)
+        self.assertIn("EDGE_VIEWER_ENABLE_FFMPEG", qmake)
+        self.assertIn("EDGE_VIEWER_ENABLE_V4L2", qmake)
+        self.assertIn("EDGE_VIEWER_HAS_FFMPEG", qmake)
+        self.assertIn("EDGE_VIEWER_HAS_V4L2", qmake)
+        self.assertIn("CROSS_COMPILE", qmake)
+        self.assertIn("QMAKE_CC", qmake)
+        self.assertIn("QMAKE_CXX", qmake)
+        self.assertIn("QMAKE_LINK", qmake)
         self.assertIn("EDGE_VIEWER_QT_MAJOR", cmake)
         self.assertIn("find_package(QT NAMES Qt6 Qt5", cmake)
         self.assertIn("Qt${QT_VERSION_MAJOR}::Widgets", cmake)
@@ -133,6 +144,23 @@ class QtExampleTests(unittest.TestCase):
         self.assertIn("v4l2-ctl --list-devices", guide)
         self.assertIn("ffmpeg -protocols", guide)
         self.assertIn("Do not commit", guide)
+
+    def test_qt_viewer_records_local_build_verification_without_private_details(self) -> None:
+        record_path = EXAMPLE / "docs" / "local-build-verification.md"
+        self.assertTrue(record_path.exists(), f"missing {record_path.relative_to(ROOT)}")
+        record = record_path.read_text(encoding="utf-8")
+
+        self.assertIn("completed on maintainer local machine", record)
+        self.assertIn("Qt 5.15.x", record)
+        self.assertIn("qmake", record)
+        self.assertIn("linux-buildroot-g++", record)
+        self.assertIn("aarch64", record)
+        self.assertIn("FFmpeg", record)
+        self.assertIn("V4L2", record)
+        self.assertNotIn("offline_sdk", record)
+        self.assertNotIn("/home/", record)
+        self.assertNotIn("192.168.", record)
+        self.assertNotIn("zq" + "500", record.lower())
 
 
 if __name__ == "__main__":
