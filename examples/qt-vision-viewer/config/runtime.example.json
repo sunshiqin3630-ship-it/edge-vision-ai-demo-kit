@@ -1,0 +1,32 @@
+{
+  "activeSourceProfile": "synthetic-demo",
+  "boardSystemConfig": "config/board-system.example.json",
+  "sourceProfiles": [
+    {
+      "id": "synthetic-demo",
+      "type": "synthetic",
+      "url": "sample://synthetic-frame"
+    },
+    {
+      "id": "public-rtsp-example",
+      "type": "ffmpeg",
+      "url": "rtsp://example-camera.local/live",
+      "transport": "tcp"
+    },
+    {
+      "id": "public-uvc-example",
+      "type": "v4l2",
+      "device": "/dev/video0",
+      "format": "YUYV",
+      "width": 1280,
+      "height": 720,
+      "fps": 30
+    }
+  ],
+  "display": {
+    "mode": "dual-screen",
+    "primaryRole": "operator-ui",
+    "secondaryRole": "vision-output",
+    "mirrorDetections": true
+  }
+}

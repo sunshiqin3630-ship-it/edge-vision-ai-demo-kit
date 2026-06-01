@@ -11,14 +11,16 @@ board credentials, generated model artifacts, or runtime bundles.
 ## What This Repository Contains
 
 - A small Python reference pipeline with a deterministic `mock` backend.
-- A sanitized Qt Widgets viewer skeleton that displays mock detections over a
-  synthetic frame.
+- A sanitized Qt Widgets viewer skeleton with synthetic, FFmpeg stream, and
+  V4L2 UVC capture boundaries plus dual-screen display routing.
 - A model manifest schema that records source repository, revision, license,
   input shape, and artifact distribution status.
 - A sanitization scanner that rejects generated model files, binary runtime
   files, lab addresses, password shortcuts, and vendor-specific SDK names.
 - Documentation for adapting the architecture to Qt, V4L2, FFmpeg, DRM/KMS,
   and private accelerator backends.
+- Sanitized board system configuration examples for Qt version selection,
+  sysroot/toolchain settings, screen resources, and runtime profiles.
 - Open-source project materials: contribution guide, security policy, license,
   environment template, and application summary.
 

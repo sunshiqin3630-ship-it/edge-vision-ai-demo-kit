@@ -1,0 +1,52 @@
+{
+  "board": {
+    "name": "generic-edge-linux-board",
+    "os": "embedded-linux",
+    "arch": "aarch64"
+  },
+  "qt": {
+    "major": "auto",
+    "qpaPlugins": ["eglfs", "linuxfb", "wayland"],
+    "cmakePrefix": "${BOARD_QT_CMAKE_PREFIX}"
+  },
+  "displayResources": [
+    {
+      "id": "primary-hdmi",
+      "role": "operator-ui",
+      "qtScreenName": "HDMI-A-1",
+      "drmConnector": "HDMI-A-1",
+      "geometry": {"width": 1920, "height": 1080, "x": 0, "y": 0},
+      "orientation": "landscape"
+    },
+    {
+      "id": "secondary-panel",
+      "role": "vision-output",
+      "qtScreenName": "DSI-1",
+      "drmConnector": "DSI-1",
+      "geometry": {"width": 1280, "height": 720, "x": 1920, "y": 0},
+      "orientation": "landscape"
+    }
+  ],
+  "captureResources": {
+    "streams": [
+      {
+        "id": "public-rtsp-example",
+        "type": "ffmpeg",
+        "url": "rtsp://example-camera.local/live",
+        "transport": "tcp"
+      }
+    ],
+    "uvc": [
+      {
+        "id": "public-uvc-example",
+        "type": "v4l2",
+        "device": "/dev/video0",
+        "format": "YUYV",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "ioMethod": "read"
+      }
+    ]
+  }
+}
