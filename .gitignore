@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+install/
+tmp/
+out/
+
+# Embedded runtime outputs
+runtime-bundle/
+board-bundle/
+*_bundle/
+*-sysroot/
+host-tools/
+
+# Generated models and private binaries
+*.a
+*.bin
+*.engine
+*.img
+*.npy
+*.onnx
+*.pt
+*.pth
+*.slz
+*.so
+*.whl
+*.zip
+
+# Local configuration
+.env
+.env.local
+secrets.*

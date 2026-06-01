@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edge-vision-ai-demo-kit"
+version = "0.1.0"
+description = "A sanitized reference toolkit for embedded Linux edge-vision demos."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Edge Vision AI Demo Kit Maintainers" }]
+
+[project.scripts]
+edge-vision-kit = "edge_vision_ai_demo_kit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

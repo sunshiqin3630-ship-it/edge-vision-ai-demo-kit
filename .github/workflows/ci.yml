@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run unit tests
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Validate manifest
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python -m edge_vision_ai_demo_kit.cli validate-manifest models/manifest.example.json
+      - name: Run sanitization scan
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python scripts/check_sanitization.py

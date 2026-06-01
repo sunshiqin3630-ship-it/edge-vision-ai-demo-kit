@@ -1,0 +1,13 @@
+[Unit]
+Description=Edge Vision AI Demo Kit
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/edge-vision-demo.env
+ExecStart=/usr/bin/python3 -m edge_vision_ai_demo_kit.cli run-once --backend ${EDGE_VISION_BACKEND} --source ${EDGE_VISION_SOURCE} --model ${EDGE_VISION_MODEL} --width ${EDGE_VISION_FRAME_WIDTH} --height ${EDGE_VISION_FRAME_HEIGHT}
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
